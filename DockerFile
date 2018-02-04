@@ -1,0 +1,13 @@
+#FROM microsoft/powershell:nanoserver
+FROM microsoft/windowsservercore
+
+LABEL maintainer="jonas@y3k.se"
+
+# Copy app to /src
+COPY ./Win64/Debug/EchoServer.exe /src/
+
+WORKDIR /src
+
+EXPOSE 4444
+
+CMD ["EchoServer.exe", "4444"]
